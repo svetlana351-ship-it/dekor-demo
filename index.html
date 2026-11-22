@@ -288,6 +288,41 @@
   .reviews__fact { margin-top: var(--v-7); padding-top: var(--v-5); border-top: 1px solid var(--v-hair); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
   @media (max-width: 860px) { .reviews__list { grid-template-columns: 1fr; } }
 
+  /* ---- галерея выполненных оформлений (демо-фото – заменить на работы студии) ------- */
+  .gal__head { display: grid; gap: var(--v-3); max-width: 46rem; margin-bottom: var(--v-7); }
+  .gal__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--v-5); }
+  .gal__grid figure { position: relative; border-radius: var(--v-radius); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--v-e2), var(--v-edge); }
+  .gal__grid img { width: 100%; height: 100%; object-fit: cover; }
+  .gal__grid figure::after { content: ""; position: absolute; inset: auto 0 0 0; height: 42%; background: linear-gradient(to top, rgb(248 241 237 / .85), rgb(248 241 237 / .25) 55%, transparent); pointer-events: none; }
+  .gal__grid figcaption { position: absolute; left: var(--v-4); right: var(--v-4); bottom: var(--v-4); z-index: 1; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink); }
+  @media (max-width: 860px) { .gal__grid { grid-template-columns: repeat(2, 1fr); gap: var(--v-3); } .gal__head { margin-bottom: var(--v-5); } .gal__grid figcaption, .gal__grid figure::after { display: none; } }
+
+  /* ---- частые вопросы -------------------------------------------------------------- */
+  .faq__list { max-width: 52rem; }
+  .faq__item { border-top: 1px solid var(--v-hair); }
+  .faq__item:last-child { border-bottom: 1px solid var(--v-hair); }
+  .faq__item summary { position: relative; list-style: none; cursor: pointer; padding: var(--v-5) 2.6rem var(--v-5) 0; font-family: var(--v-font-display); font-weight: 400; font-size: var(--v-t-lg); line-height: 1.2; letter-spacing: 0; min-height: 44px; }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary::after { content: ""; position: absolute; right: .2rem; top: 50%; width: 1.1rem; height: 1.1rem; margin-top: -.55rem;
+    background:
+      linear-gradient(currentColor, currentColor) 50% 0 / 2px 100% no-repeat,
+      linear-gradient(currentColor, currentColor) 0 50% / 100% 2px no-repeat;
+    transition: transform .3s ease; }
+  .faq__item[open] summary::after { transform: rotate(45deg); }
+  .faq__item p { padding: 0 0 var(--v-5); color: var(--v-ink-soft); max-width: 56ch; text-wrap: pretty; }
+  .faq__item p b { color: var(--v-ink); font-weight: 500; }
+  @media (max-width: 860px) { .faq__item summary { font-size: 1.1rem; } }
+
+  /* ---- форма заявки (в демо не отправляет, на Тильде заработает) -------------------- */
+  .lead { display: grid; gap: var(--v-3); background: rgb(255 252 250 / .92); border: 1px solid var(--v-hair); border-radius: var(--v-radius); box-shadow: var(--v-e2), var(--v-edge); padding: var(--v-6); }
+  .lead label { display: grid; gap: .35em; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); }
+  .lead input, .lead select { font: inherit; font-size: var(--v-t-base); color: var(--v-ink); background: var(--v-canvas); border: 1px solid var(--v-hair-strong); border-radius: .8rem; padding: .65em .9em; min-height: 48px; width: 100%; }
+  .lead input:focus, .lead select:focus { outline: 2px solid var(--v-accent); outline-offset: 1px; }
+  .lead__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-3); }
+  .lead .v-btn { justify-self: start; margin-top: var(--v-2); }
+  .lead__note { font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  @media (max-width: 480px) { .lead__row { grid-template-columns: 1fr; } .lead { padding: var(--v-5); } }
+
   /* ---- финал: одно сообщение ----------------------------------------------------- */
   .close { min-height: 86svh; display: grid; grid-template-rows: 1fr auto; padding: clamp(6rem, 14vh, 9rem) var(--v-gutter) 2.5rem;
     background: radial-gradient(60rem 40rem at calc(var(--v-mx, .5) * 100%) calc(var(--v-my, .5) * 100%), rgb(47 107 77 / .10), transparent 60%); }
@@ -297,7 +332,7 @@
   .close__cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--v-4) var(--v-6); margin-top: var(--v-6); }
   .close__tel { font-family: var(--v-font-display); font-size: var(--v-t-xl); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; color: var(--v-ink); letter-spacing: .01em; }
   .close__hint { margin-top: var(--v-4); font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 44ch; }
-  .close__meta { display: grid; gap: var(--v-3); color: var(--v-ink-soft); padding-top: var(--v-2); }
+  .close__meta { display: grid; gap: var(--v-3); color: var(--v-ink-soft); margin-top: var(--v-6); padding-top: var(--v-5); border-top: 1px solid var(--v-hair); }
   .close__meta b { color: var(--v-ink); font-weight: 500; display: block; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; margin-bottom: .2em; }
   .foot { display: flex; justify-content: space-between; gap: var(--v-4); padding: var(--v-6) 0 0; border-top: 1px solid var(--v-hair); font-size: var(--v-t-xs); color: var(--v-ink-soft); flex-wrap: wrap; }
   @media (max-width: 860px) {
@@ -517,13 +552,33 @@
             <li><strong>Свадьба</strong><span>Встреча или созвон с референсами, план зала, смета до предоплаты. Арка, стол молодожёнов и композиции для гостей – фото готового оформления накануне.</span></li>
             <li><strong>День рождения и юбилей</strong><span>Фотозона и стол с цветами под тему вечера. Собираем и разбираем без вашего участия: вы принимаете гостей, а не следите за монтажом.</span></li>
             <li><strong>Корпоратив</strong><span>Оформление в цветах компании: ткань, цветы и декор со логотипом, стол для награждения. Смета и сроки – до подписания договора.</span></li>
+            <li><strong>Фотозона</strong><span>Рама, ткань, цветы и свет под тему события – отдельной зоной или частью общего оформления. Ставим и убираем сами.</span></li>
           </ul>
           <p class="ev__hint"><b>События считаем заранее:</b> напишите дату, площадку и примерное число гостей – ответим составом, сметой и сроками.</p>
         </div>
       </div>
     </section>
 
-    <!-- 7 · ДОВЕРИЕ: демо-тексты, перед показом заказчику заменить настоящими с его карточки -->
+    <!-- 7 · ГАЛЕРЕЯ: выполненные оформления (фото-примеры, заменить на работы студии) -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f8f1ed" id="galeriya" aria-label="Галерея выполненных оформлений">
+      <div class="v-wrap gal">
+        <div class="gal__head" data-v-in data-v-stagger="60">
+          <span class="v-label">Галерея</span>
+          <h2 class="v-display v-display--md">Оформления, которые уже стояли на праздниках</h2>
+          <p class="v-body v-soft">Каждое – под конкретную площадку и повод: смета известна заранее, фото готовых композиций приходят накануне.</p>
+        </div>
+        <ul class="gal__grid" data-v-in data-v-stagger="70">
+          <li><figure><img src="assets/gal-ceremony.webp" alt="Выездная церемония: арка из зелени и белых цветов на белой дорожке" width="1100" height="825" loading="lazy" decoding="async"><figcaption>Выездная церемония · арка из зелени</figcaption></figure></li>
+          <li><figure><img src="assets/gal-tent.webp" alt="Свадьба на природе: белый шатёр с драпировкой на зелёной лужайке" width="1100" height="825" loading="lazy" decoding="async"><figcaption>Свадьба на природе · шатёр</figcaption></figure></li>
+          <li><figure><img src="assets/gal-arch.webp" alt="Свадьба в зале: арка с зеленью и цветами, проход между композициями" width="1200" height="900" loading="lazy" decoding="async"><figcaption>Свадьба в зале · арка и дорожка</figcaption></figure></li>
+          <li><figure><img src="assets/gal-banquet.webp" alt="Юбилей: банкетный стол с золотой скатертью и вазами с гипсофилой" width="1200" height="900" loading="lazy" decoding="async"><figcaption>Юбилей · банкетный стол</figcaption></figure></li>
+          <li><figure><img src="assets/gal-corp.webp" alt="Корпоратив: сервировка стола с тёмными салфетками и эвкалиптом" width="1200" height="900" loading="lazy" decoding="async"><figcaption>Корпоратив · сервировка</figcaption></figure></li>
+          <li><figure><img src="assets/gal-candles.webp" alt="Детали оформления: свечи в стекле и белые розы среди зелени" width="1200" height="900" loading="lazy" decoding="async"><figcaption>Детали · свечи и розы</figcaption></figure></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8 · ДОВЕРИЕ: демо-тексты, перед показом заказчику заменить настоящими с его карточки -->
     <section class="v-section" data-v-act="flow" data-v-drift="#f8f1ed" id="otzyvy" aria-label="Отзывы с Яндекс.Карт">
       <div class="v-wrap reviews">
         <div class="reviews__head" data-v-in data-v-stagger="60">
@@ -553,7 +608,39 @@
       </div>
     </section>
 
-    <!-- 8 · ДЕЙСТВИЕ: назовите дату и площадку -->
+    <!-- 9 · ВОПРОСЫ: ответы на частые вопросы -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f2e7e2" id="voprosy" aria-label="Частые вопросы">
+      <div class="v-wrap faq">
+        <div class="gal__head" data-v-in data-v-stagger="60">
+          <span class="v-label">Вопросы</span>
+          <h2 class="v-display v-display--md">Частые вопросы – коротко</h2>
+        </div>
+        <div class="faq__list" data-v-in data-v-stagger="60">
+          <details class="faq__item">
+            <summary>За сколько дней до события нужно заказывать оформление?</summary>
+            <p>Идеально – <b>за 2–3 недели</b>: успеваем подобрать цветы и материалы под вашу дату. За 3–5 дней тоже работаем, но выбор уже по наличию, а не по каталогу.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Как формируется смета и не вырастет ли она потом?</summary>
+            <p>После короткого брифа собираем состав и <b>фиксируем смету до предоплаты</b>. В день события сумма не меняется – ни на рубль.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Можно ли заменить цветы или ткань в готовом решении?</summary>
+            <p>Да. Накануне присылаем <b>фото собранных композиций</b>: если что-то не так, переделываем до события, а не на площадке.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Вы работаете на нашей площадке?</summary>
+            <p>Да, выезжаем по Казани и до 30 км за город. <b>Монтаж заканчиваем до приезда гостей</b>, демонтаж убираем после события – без вашего участия.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Что, если на площадке нельзя открытый огонь?</summary>
+            <p>Заменяем свечи на <b>LED-свечи и гирлянды</b>: света и атмосферы хватает, а ограничения площадки соблюдены.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · ДЕЙСТВИЕ: назовите дату и площадку -->
     <section data-v-act="flow" data-v-drift="#f8f1ed" id="zakaz" aria-label="Обсудить мероприятие">
       <div class="close" data-v-spotlight>
         <div class="close__inner">
@@ -566,10 +653,36 @@
             </div>
             <p class="close__hint">Не знаете, с чего начать – опишите событие, предложим два-три варианта с фото и сметой. Не любите писать – звоните.</p>
           </div>
-          <div class="close__meta" data-v-in data-v-stagger="60">
-            <span><b>Принимаем заказы</b>09:00 – 21:00 без выходных</span>
-            <span><b>Выезд</b>вся Казань и до 30 км за город · монтаж до приезда гостей</span>
-            <span><b>Студия</b>ул. Баумана, 5, Казань</span>
+          <div>
+            <form class="lead" id="lead-form" data-v-in>
+              <label>Ваше имя
+                <input type="text" name="name" autocomplete="name" required placeholder="Как к вам обращаться">
+              </label>
+              <label>Телефон
+                <input type="tel" name="phone" autocomplete="tel" required placeholder="+7 ___ ___-__-__">
+              </label>
+              <div class="lead__row">
+                <label>Дата события
+                  <input type="date" name="date">
+                </label>
+                <label>Тип мероприятия
+                  <select name="type">
+                    <option>Свадьба</option>
+                    <option>День рождения или юбилей</option>
+                    <option>Корпоратив</option>
+                    <option>Фотозона</option>
+                    <option>Другое</option>
+                  </select>
+                </label>
+              </div>
+              <button class="v-btn" type="submit">Отправить заявку</button>
+              <p class="lead__note">Демо: форма пока ничего не отправляет. На Тильде она заработает – заявки будут приходить на почту студии.</p>
+            </form>
+            <div class="close__meta" data-v-in data-v-stagger="60">
+              <span><b>Принимаем заказы</b>09:00 – 21:00 без выходных</span>
+              <span><b>Выезд</b>вся Казань и до 30 км за город · монтаж до приезда гостей</span>
+              <span><b>Студия</b>ул. Баумана, 5, Казань</span>
+            </div>
           </div>
         </div>
         <footer class="foot">
@@ -599,6 +712,18 @@
     window.addEventListener('scroll', tick, { passive: true }); tick();
   })();
   // Фирменные ходы (веер карточек в #sborka и часы в #kchasu) ведёт CSS от --v-p акта, скрипта им не нужно.
+
+  // Форма заявки: в демо ничего не отправляет, честно говорим об этом.
+  (function () {
+    var form = document.getElementById('lead-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var note = form.querySelector('.lead__note');
+      note.textContent = 'Заявка записана в демо. На боевом сайте на Тильде она придёт на почту студии – а здесь можно позвонить: +7 900 123-45-67.';
+      form.reset();
+    });
+  })();
 </script>
 </body>
 </html>
